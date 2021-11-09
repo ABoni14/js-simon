@@ -40,15 +40,7 @@ function inizio(init){
 
     container.innerHTML = "";
 
-    for(let i = 0; i < 5; i++);
-
-  }, 10000); // faccio sparire i numeri dopo 10s
-}
-
-// FACCIO PARTIRE I PROMPT QUANDO SCADE IL TEMPO PER LA VISUALIZZAZIONE DEI NUMERI
-setTimeout(function(){
-
-  for(let i = 0; i < 5; i++){
+    for(let i = 0; i < 5; i++){
       let numeriRicordati = parseInt(prompt('Inserisci un numero'));
 
       if(array.includes(numeriRicordati)){ //confronto i numeri
@@ -68,7 +60,9 @@ setTimeout(function(){
           `
       }
   };
-}, 10001);
+
+  }, 10000); // faccio sparire i numeri dopo 10s
+}
 
 
 
