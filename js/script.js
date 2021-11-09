@@ -3,16 +3,16 @@
 // Dopo 30 secondi l’utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
-
 const container = document.getElementById("cont");
 let array = numberArray();
+let arrayUtente = [];
+let contatore = 0;
 console.log(array);
 
 //INIZIO
 inizio(array);
 
 // FUNZIONI
-
 // creo un array vuoto dove pusho ogni volta un numero da 1 a 99
 function numberArray(){
   const array = [];
@@ -43,14 +43,32 @@ function inizio(init){
     for(let i = 0; i < 5; i++);
 
   }, 10000); // faccio sparire i numeri dopo 10s
-
-  for(let i = 0; i < 3; i++){
-    let parola = prompt("numero");
-    console.log(parola);
-  }
 }
 
-console.log(parola);
+// FACCIO PARTIRE I PROMPT QUANDO SCADE IL TEMPO PER LA VISUALIZZAZIONE DEI NUMERI
+setTimeout(function(){
+
+  for(let i = 0; i < 5; i++){
+      let numeriRicordati = parseInt(prompt('Inserisci un numero'));
+
+      if(array.includes(numeriRicordati)){
+          arrayUtente.push(numeriRicordati)
+          contatore++
+      } else if(arrayUtente.length > 0){
+          container.innerHTML = 
+          `
+            <h2>Bravo! Hai indovinato ${contatore} numeri!</h2>
+          
+          `
+      } else{
+          container.innerHTML = 
+          `
+            <h2>Allena meglio la tua mente! Non hai ricordato neanche un numero :-)</h2>
+          `
+      }
+  };
+}, 10001);
+
 
 
 
