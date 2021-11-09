@@ -51,12 +51,13 @@ setTimeout(function(){
   for(let i = 0; i < 5; i++){
       let numeriRicordati = parseInt(prompt('Inserisci un numero'));
 
-      if(array.includes(numeriRicordati)){
-          arrayUtente.push(numeriRicordati)
-          contatore++
+      if(array.includes(numeriRicordati)){ //confronto i numeri
+          arrayUtente.push(numeriRicordati) // pusho se presente
+          contatore++;
       } else if(arrayUtente.length > 0){
           container.innerHTML = 
           `
+            <span class="box">${arrayUtente} </span>
             <h2>Bravo! Hai indovinato ${contatore} numeri!</h2>
           
           `
